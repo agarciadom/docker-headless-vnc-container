@@ -1,0 +1,9 @@
+services:
+  eclipse:
+    restart: always
+    build:
+      dockerfile: Dockerfile.epsilon-xfce-vnc
+    image: epsilon-vnc:latest
+    command: /headless/start_eclipse.sh
+    ports:
+      - 6901:6901

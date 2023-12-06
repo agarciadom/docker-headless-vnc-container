@@ -64,6 +64,7 @@ USER 1000
 
 # Disable welcome screen on starting workspace
 ADD ./src/eclipse/workspace $HOME/workspace
+ADD ./src/eclipse/start_eclipse.sh $HOME/start_eclipse.sh
 
 # Clone example project
 RUN git clone --depth 1 https://github.com/agarciadom/mdenet-mde-ci-tutorial.git
