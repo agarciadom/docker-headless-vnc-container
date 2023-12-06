@@ -1,4 +1,20 @@
-# Docker container images with "headless" VNC session
+# Experimental Eclipse + Epsilon container with web VNC client
+
+To try out this image, install Docker and run:
+
+```shell
+docker compose up -d
+```
+
+After some time, open this website on your browser:
+
+```shell
+http://localhost:6901/vnc.html
+```
+
+The default password is `vncpassword`.
+
+## Docker container images with "headless" VNC session
 
 This repository contains a collection of Docker images with headless VNC environments.
 
