@@ -62,5 +62,8 @@ RUN mv /epsilon $HOME/epsilon && chown -R 1000 $HOME/epsilon
 
 USER 1000
 
+# Disable welcome screen on starting workspace
+ADD ./src/eclipse/workspace $HOME/workspace
+
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]
