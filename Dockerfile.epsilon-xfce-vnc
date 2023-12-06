@@ -56,7 +56,7 @@ RUN $INST_SCRIPTS/libnss_wrapper.sh
 ADD ./src/common/scripts $STARTUPDIR
 RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
-### move Epsilon to the home directory
+### Move Epsilon to the home directory
 
 RUN mv /epsilon $HOME/epsilon && chown -R 1000 $HOME/epsilon
 
@@ -64,6 +64,9 @@ USER 1000
 
 # Disable welcome screen on starting workspace
 ADD ./src/eclipse/workspace $HOME/workspace
+
+# Clone example project
+RUN git clone --depth 1 https://github.com/agarciadom/mdenet-mde-ci-tutorial.git
 
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]
