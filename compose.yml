@@ -7,3 +7,5 @@ services:
     command: /headless/start_eclipse.sh
     ports:
       - 6901:6901
+    environment:
+      VNC_PW: changeme

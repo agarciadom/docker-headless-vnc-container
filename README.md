@@ -12,7 +12,8 @@ After some time, open this website on your browser:
 http://localhost:6901/vnc.html
 ```
 
-The default password is `vncpassword`.
+The default password is `changeme`.
+It is specified in the `VNC_PW` environment variable of the [`compose.yml`](./compose.yml) file.
 
 ## Docker container images with "headless" VNC session
 
