@@ -56,6 +56,18 @@ RUN $INST_SCRIPTS/libnss_wrapper.sh
 ADD ./src/common/scripts $STARTUPDIR
 RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
+### Install Emfatic editor
+
+WORKDIR /epsilon
+
+RUN ./eclipse -application org.eclipse.equinox.p2.director \
+              -repository http://download.eclipse.org/epsilon/interim/ \
+              -installIU org.eclipse.epsilon.flexmi.dt.feature.feature.group
+
+RUN ./eclipse -application org.eclipse.equinox.p2.director \
+              -repository http://download.eclipse.org/emfatic/update \
+              -installIU org.eclipse.emf.emfatic.feature.group
+
 ### Move Epsilon to the home directory
 
 RUN mv /epsilon $HOME/epsilon && chown -R 1000 $HOME/epsilon
@@ -67,7 +79,7 @@ ADD ./src/eclipse/workspace $HOME/workspace
 ADD ./src/eclipse/start_eclipse.sh $HOME/start_eclipse.sh
 
 # Clone example project
-RUN git clone --depth 1 https://github.com/agarciadom/mdenet-mde-ci-tutorial.git
+RUN git clone --depth 1 https://github.com/agarciadom/mdenet-mde-ci-tutorial.git $HOME/mdenet-mde-ci-tutorial
 
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]
