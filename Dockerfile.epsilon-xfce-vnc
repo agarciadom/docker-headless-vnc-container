@@ -60,9 +60,9 @@ RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
 WORKDIR /epsilon
 
-RUN ./eclipse -application org.eclipse.equinox.p2.director \
-              -repository http://download.eclipse.org/epsilon/interim/ \
-              -installIU org.eclipse.epsilon.flexmi.dt.feature.feature.group
+#RUN ./eclipse -application org.eclipse.equinox.p2.director \
+#              -repository http://download.eclipse.org/epsilon/interim/ \
+#              -installIU org.eclipse.epsilon.flexmi.dt.feature.feature.group
 
 RUN ./eclipse -application org.eclipse.equinox.p2.director \
               -repository http://download.eclipse.org/emfatic/update \
